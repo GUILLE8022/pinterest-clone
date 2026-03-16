@@ -1,0 +1,31 @@
+.header{
+
+display:flex;
+align-items:center;
+gap:20px;
+padding:10px 20px;
+position:sticky;
+top:0;
+background:white;
+z-index:100;
+
+}
+
+.logo{
+
+font-weight:bold;
+font-size:20px;
+cursor:pointer;
+
+}
+
+.search input{
+
+width:400px;
+padding:10px;
+border-radius:20px;
+border:none;
+background:#eee;
+
+}
+
