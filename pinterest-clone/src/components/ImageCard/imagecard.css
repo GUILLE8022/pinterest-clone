@@ -1,0 +1,52 @@
+.card{
+
+position:relative;
+border-radius:16px;
+overflow:hidden;
+background:white;
+cursor:pointer;
+
+}
+
+.card img{
+
+width:100%;
+display:block;
+border-radius:16px;
+
+}
+
+.user{
+
+position:absolute;
+bottom:10px;
+left:10px;
+display:flex;
+align-items:center;
+gap:8px;
+background:white;
+padding:5px 8px;
+border-radius:20px;
+
+}
+
+.user img{
+
+width:30px;
+height:30px;
+border-radius:50%;
+}
+
+.user p{
+
+font-size:12px;
+font-weight:600;
+
+}
+
+.user span{
+
+font-size:10px;
+color:gray;
+
+}

@@ -2,14 +2,21 @@ import SearchBar from "../SearchBar/SearchBar";
 import "./header.css";
 
 const Header = ({ onSearch, reset }) => {
+
   return (
     <header className="header">
 
       <div className="logo" onClick={reset}>
-        Pinterest
+        P
       </div>
 
-      <SearchBar onSearch={onSearch} />
+      <SearchBar onSearch={onSearch}/>
+
+      <div className="icons">
+        🔔
+        💬
+        👤
+      </div>
 
     </header>
   );
