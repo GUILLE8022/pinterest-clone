@@ -4,6 +4,7 @@ import Gallery from "./components/Gallery/Gallery";
 import { searchImages, getRandomImages } from "./services/unsplash";
 
 function App() {
+
   const [images, setImages] = useState([]);
 
   useEffect(() => {

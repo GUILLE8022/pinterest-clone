@@ -2,6 +2,7 @@ import ImageCard from "../ImageCard/ImageCard";
 import "./gallery.css";
 
 const Gallery = ({ images }) => {
+
   return (
     <div className="gallery">
 
