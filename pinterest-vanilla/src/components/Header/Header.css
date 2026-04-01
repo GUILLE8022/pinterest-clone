@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 100;
+}
+
+/* LOGO */
+.logo {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+/* BUSCADOR */
+.search {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  background: var(--gray);
+  outline: none;
+}

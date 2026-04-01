@@ -1,0 +1,51 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --gray: #f1f1f1;
+  --radius: 16px;
+}
+
+/* BODY */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* CONTENEDOR PRINCIPAL */
+#app {
+  width: 100%;
+}
+
+/* GRID GLOBAL */
+.gallery {
+  column-count: 5;
+  column-gap: 16px;
+  padding: 20px;
+}
+
+@media (max-width: 1200px) {
+  .gallery {
+    column-count: 4;
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    column-count: 1; 
+  }
+}
