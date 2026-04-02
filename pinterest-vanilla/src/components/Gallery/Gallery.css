@@ -1,5 +1,28 @@
-.message {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 18px;
+.gallery {
+  column-count: 5;
+  column-gap: 16px;
+}
+
+.card {
+  margin-bottom: 16px;
+  break-inside: avoid;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .gallery {
+    column-count: 4;
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    column-count: 2;
+  }
 }

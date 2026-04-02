@@ -1,25 +1,24 @@
 import "./styles/global.css";
 import { createHeader } from "./components/Header/Header";
-import { renderImages } from "./components/Gallery/Gallery";
-import { getRandomImages, searchImages } from "./services/unsplash";
+import { createGallery } from "./components/Gallery/Gallery";
+import { searchImages, getRandomImages } from "./services/unsplash";
 
-const app = document.getElementById("app");
+const app = document.querySelector("#app");
 
-const galleryContainer = document.createElement("div");
+const renderImages = async (query) => {
+  app.innerHTML = "";
 
-const loadImages = async () => {
-  const data = await getRandomImages();
-  renderImages(galleryContainer, data);
+  const images = query
+    ? await searchImages(query)
+    : await getRandomImages();
+
+  const gallery = createGallery(images);
+  app.appendChild(gallery);
 };
 
-const handleSearch = async (query) => {
-  const data = await searchImages(query);
-  renderImages(galleryContainer, data);
-};
+const header = createHeader(renderImages, () => renderImages());
 
-const header = createHeader(handleSearch, loadImages);
+document.body.prepend(header);
 
-app.appendChild(header);
-app.appendChild(galleryContainer);
-
-document.addEventListener("DOMContentLoaded", loadImages);
+// CARGA INICIAL
+renderImages();

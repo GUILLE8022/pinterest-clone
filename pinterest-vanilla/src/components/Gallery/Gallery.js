@@ -1,17 +1,14 @@
-import { createImageCard } from "../ImageCard/ImageCard.js";
+import "./Gallery.css";
+import { createImageCard } from "../ImageCard/ImageCard";
 
-export const renderImages = (container, images) => {
-  container.innerHTML = "";
-
-  container.className = "gallery";
-
-  if (!images || images.length === 0) {
-    container.innerHTML = "<p>No hay resultados 😢</p>";
-    return;
-  }
+export const createGallery = (images) => {
+  const gallery = document.createElement("div");
+  gallery.className = "gallery";
 
   images.forEach((img) => {
     const card = createImageCard(img);
-    container.appendChild(card);
+    gallery.appendChild(card);
   });
-};
+
+  return gallery;
+};  
