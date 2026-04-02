@@ -1,48 +1,23 @@
 import "./ImageCard.css";
 
-export const createImageCard = (image) => {
-
+export const createImageCard = (img) => {
   const card = document.createElement("div");
   card.className = "card";
 
-  const img = document.createElement("img");
-  img.src = image.urls.small;
-  img.alt = image.alt_description || "imagen";
+  card.innerHTML = `
+    <img src="${img.urls.small}" alt="img" />
 
-  const overlay = document.createElement("div");
-  overlay.className = "overlay";
+    <div class="overlay">
+      <a href="${img.links.html}" target="_blank" class="visit">Visitar</a>
 
-  // BOTÓN
-  const visit = document.createElement("a");
-  visit.className = "visit";
-  visit.textContent = "Visitar";
-  visit.href = image.links.html;
-  visit.target = "_blank";
+      <div class="info">
+        <img src="${img.user.profile_image.small}" />
+        <span>${img.user.name}</span>
+      </div>
 
-  // LIKES
-  const stats = document.createElement("div");
-  stats.className = "stats";
-  stats.textContent = `❤️ ${image.likes}`;
-
-  overlay.appendChild(visit);
-  overlay.appendChild(stats);
-
-  // USUARIO
-  const user = document.createElement("div");
-  user.className = "user";
-
-  const avatar = document.createElement("img");
-  avatar.src = image.user.profile_image.small;
-
-  const name = document.createElement("span");
-  name.textContent = image.user.name;
-
-  user.appendChild(avatar);
-  user.appendChild(name);
-
-  card.appendChild(img);
-  card.appendChild(overlay);
-  card.appendChild(user);
+      <div class="stats">❤️ ${img.likes}</div>
+    </div>
+  `;
 
   return card;
 };

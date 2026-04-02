@@ -1,20 +1,17 @@
-import "./Gallery.css";
-import { createImageCard } from "../ImageCard/ImageCard";
+import { createImageCard } from "../ImageCard/ImageCard.js";
 
 export const renderImages = (container, images) => {
   container.innerHTML = "";
+
   container.className = "gallery";
 
-  if (!images.length) {
-    showMessage(container, "No hay resultados");
+  if (!images || images.length === 0) {
+    container.innerHTML = "<p>No hay resultados 😢</p>";
     return;
   }
 
   images.forEach((img) => {
-    container.appendChild(createImageCard(img));
+    const card = createImageCard(img);
+    container.appendChild(card);
   });
-};
-
-export const showMessage = (container, text) => {
-  container.innerHTML = `<p class="message">${text}</p>`;
 };
