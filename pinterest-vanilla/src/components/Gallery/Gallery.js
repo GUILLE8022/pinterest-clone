@@ -5,10 +5,9 @@ export const createGallery = (images) => {
   const gallery = document.createElement("div");
   gallery.className = "gallery";
 
-  images.forEach((img) => {
-    const card = createImageCard(img);
-    gallery.appendChild(card);
+  images.forEach(img => {
+    gallery.appendChild(createImageCard(img));
   });
 
   return gallery;
-};  
+};

@@ -1,28 +1,28 @@
 .gallery {
   column-count: 5;
   column-gap: 16px;
+  padding: 12px;
 }
 
 .card {
-  margin-bottom: 16px;
+  display: inline-block;
+  width: 100%;
   break-inside: avoid;
+  margin-bottom: 16px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 1200px) {
-  .gallery {
-    column-count: 4;
-  }
+  .gallery { column-count: 4; }
 }
 
 @media (max-width: 900px) {
-  .gallery {
-    column-count: 3;
-  }
+  .gallery { column-count: 3; }
 }
 
 @media (max-width: 600px) {
-  .gallery {
-    column-count: 2;
-  }
+  .gallery { column-count: 2; }
+}
+
+@media (max-width: 400px) {
+  .gallery { column-count: 1; }
 }

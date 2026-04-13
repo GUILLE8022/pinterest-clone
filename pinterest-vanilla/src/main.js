@@ -1,24 +1,30 @@
 import "./styles/global.css";
 import { createHeader } from "./components/Header/Header";
 import { createGallery } from "./components/Gallery/Gallery";
-import { searchImages, getRandomImages } from "./services/unsplash";
+import { getImages } from "./services/unsplash";
 
 const app = document.querySelector("#app");
 
-const renderImages = async (query) => {
-  app.innerHTML = "";
+// HEADER (una sola vez)
+createHeader(renderImages, () => renderImages());
 
-  const images = query
-    ? await searchImages(query)
-    : await getRandomImages();
+async function renderImages(query = "") {
+  try {
+    app.innerHTML = "<p>Cargando...</p>";
 
-  const gallery = createGallery(images);
-  app.appendChild(gallery);
-};
+    const images = await getImages(query);
 
-const header = createHeader(renderImages, () => renderImages());
+    if (!images || images.length === 0) {
+      app.innerHTML = "<p>No hay imágenes </p>";
+      return;
+    }
 
-document.body.prepend(header);
+    app.innerHTML = "";
+    app.appendChild(createGallery(images));
 
-// CARGA INICIAL
+  } catch (e) {
+    app.innerHTML = "<p>Error cargando imágenes </p>";
+  }
+}
+
 renderImages();
