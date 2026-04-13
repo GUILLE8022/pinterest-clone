@@ -1,77 +1,62 @@
 import "./Header.css";
 
 export const createHeader = (onSearch, reset) => {
-  const header = document.createElement("header");
+  const header = document.querySelector("#header");
+  header.innerHTML = ""; // 🔥 evita duplicados
+
+  const container = document.createElement("div");
+  container.className = "header-container";
 
   // LOGO
   const logo = document.createElement("button");
-  logo.textContent = "P";
   logo.className = "logo";
+  logo.textContent = "P";
   logo.onclick = reset;
 
-  // NAV
-  const nav = document.createElement("div");
+  // NAV (semántico)
+  const nav = document.createElement("nav");
   nav.className = "nav";
 
-  const btnInicio = document.createElement("button");
-  btnInicio.textContent = "Inicio";
-  btnInicio.classList.add("active");
+  ["Inicio", "Explorar", "Crear"].forEach((text, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = text;
 
-  const btnExplorar = document.createElement("button");
-  btnExplorar.textContent = "Explorar";
+    if (i === 1) btn.classList.add("active");
 
-  const btnCrear = document.createElement("button");
-  btnCrear.textContent = "Crear";
-
-  // CAMBIO DE ACTIVE DINÁMICO
-  const buttons = [btnInicio, btnExplorar, btnCrear];
-
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove("active"));
+    btn.onclick = () => {
+      nav.querySelectorAll("button").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
-    });
-  });
+    };
 
-  nav.append(btnInicio, btnExplorar, btnCrear);
+    nav.appendChild(btn);
+  });
 
   // SEARCH
   const form = document.createElement("form");
+  form.className = "search";
 
   const input = document.createElement("input");
   input.placeholder = "Buscar";
 
   form.appendChild(input);
 
-  form.addEventListener("submit", (e) => {
+  form.onsubmit = (e) => {
     e.preventDefault();
     const value = input.value.trim();
     if (!value) return;
-
     onSearch(value);
-    input.value = "";
-  });
+  };
 
-  // ICONS
+  // ICONOS
   const icons = document.createElement("div");
   icons.className = "icons";
 
-  const bell = document.createElement("div");
-  bell.className = "icon";
-  bell.textContent = "🔔";
+  icons.innerHTML = `
+    <button class="icon">🔔</button>
+    <button class="icon">💬</button>
+    <button class="icon profile">D</button>
+  `;
 
-  const chat = document.createElement("div");
-  chat.className = "icon";
-  chat.textContent = "💬";
-
-  const profile = document.createElement("div");
-  profile.className = "icon profile";
-  profile.textContent = "D";
-
-  icons.append(bell, chat, profile);
-
-  // APPEND TODO
-  header.append(logo, nav, form, icons);
-
-  return header;
+  container.append(logo, nav, form, icons);
+  header.appendChild(container);
 };

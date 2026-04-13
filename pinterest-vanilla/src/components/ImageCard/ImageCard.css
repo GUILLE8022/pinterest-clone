@@ -2,27 +2,19 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  cursor: pointer;
 }
 
-/* IMAGEN */
 .card img {
   width: 100%;
   display: block;
-  border-radius: 16px;
 }
 
-/* OVERLAY */
+/* overlay */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0,0,0,0.25);
   opacity: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   transition: 0.3s;
 }
 
@@ -30,57 +22,42 @@
   opacity: 1;
 }
 
-/* BOTÓN VISITAR */
+/* botón */
 .visit-btn {
-  background: #e60023;
-  color: white;
-  text-decoration: none;
-
-  padding: 8px 16px;
-  border-radius: 999px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-
-  transition: 0.2s;
-}
-
-.visit-btn:hover {
-  background: #ad081b;
-}
-
-/* TOP BAR */
-.top-bar {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-
-  display: flex;
-  justify-content: space-between;
-
-  font-size: 12px;
+  top: 10px;
+  right: 10px;
+  background: var(--primary);
   color: white;
-  font-weight: 600;
-
-  pointer-events: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  opacity: 0;
 }
 
-/* USER INFO */
-.user {
+.card:hover .visit-btn {
+  opacity: 1;
+}
+
+/* likes */
+.likes {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
-
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
+  top: 10px;
+  left: 10px;
   background: white;
   padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* user */
+.user {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  gap: 6px;
+  background: white;
+  padding: 5px 8px;
   border-radius: 20px;
 }
 
@@ -88,9 +65,4 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-}
-
-.user p {
-  font-size: 12px;
-  font-weight: 600;
 }
