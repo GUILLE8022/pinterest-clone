@@ -44,7 +44,10 @@ export const createHeader = (onSearch, reset) => {
     e.preventDefault();
     const value = input.value.trim();
     if (!value) return;
+
     onSearch(value);
+
+    input.value = "";
   };
 
   // ICONOS
