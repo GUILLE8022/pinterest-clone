@@ -1,4 +1,4 @@
-import "./styles/global.css";
+import "./Styles/global.css";
 import { createHeader } from "./components/Header/Header";
 import { createGallery } from "./components/Gallery/Gallery";
 import { getImages } from "./services/unsplash";
